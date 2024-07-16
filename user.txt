@@ -1,0 +1,7 @@
+john|password123|john@gmail.com
+alice|mypassword|alice@gmail.com
+ashik|ashik765|ashik@gmail.com
+shanjau|1234|ajama
+marwan|lm10|marwan.igb
+lll|lll|llll@gmail.com
+shasha|shasha|shasha@gmail.com
