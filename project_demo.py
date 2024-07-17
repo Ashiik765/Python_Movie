@@ -103,14 +103,6 @@ def book_movie():
     num_seniors = int(input("Enter the number of senior tickets: ").strip() or '0')
     num_children = int(input("Enter the number of child tickets: ").strip() or '0')
 
-    if select_movie is not in 'movie.txt':
-        print("invalid movie name ")
-    else:
-        pass
-
-
-
-
     total_tickets = num_adults + num_seniors + num_children
 
     if total_tickets > num_seats:
