@@ -12,6 +12,18 @@ def display():
     file.close()
 
 
+def view_movies():
+    movies = load_movies()
+    if movies:
+        print("Available movies:")
+        print("\tMovie - \tShow Times ")
+        for movie in movies:
+            movie_name , show_times = movie.split('-')
+            print(f"{movie_name.strip()} -{show_times.strip()}")
+    else:
+        print("No movies available.")
+
+
 
 print("helo")
 # here we are doing assignment

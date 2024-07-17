@@ -3,14 +3,18 @@ import random
 # Function to load users from the file
 def load_users():
     users = {}
-    try:
-        with open('user.txt', 'r') as file:
-            for line in file:
-                username, password, email = line.strip().split('|')
-                users[username] = {'password': password, 'email': email}
-    except FileNotFoundError:
-        pass
+
+    with open("user.txt",'r') as file:
+        lines = file.readlines()
+
+    for line in lines:
+        username, password, email = line.strip().split("|")
+        users[username] = {'password': password, 'email': email}
+
     return users
+
+
+
 
 # Function to save a new user to the file
 def save_user(username, password, email):
@@ -64,7 +68,6 @@ def load_movies():
 
 # Function to view movies
 def view_movies():
-
     movies = load_movies()
     if movies:
         print("Available movies:")
@@ -72,7 +75,6 @@ def view_movies():
         for movie in movies:
             movie_name , show_times = movie.split('-')
             print(f"{movie_name.strip()} -{show_times.strip()}")
-
     else:
         print("No movies available.")
 
@@ -91,9 +93,7 @@ def select_movie():
 def book_movie():
 
     view_movies()
-
     print("\nyou can select the movie and time From above details")
-
 
     select_movie = input(" what movie you want to watch  : ").upper()
     num_seats = int(input("Enter the number of seats you want to book: ").strip())
@@ -102,14 +102,6 @@ def book_movie():
     num_adults = int(input("Enter the number of adult tickets: ").strip() or '0')
     num_seniors = int(input("Enter the number of senior tickets: ").strip() or '0')
     num_children = int(input("Enter the number of child tickets: ").strip() or '0')
-
-    if select_movie is not in 'movie.txt':
-        print("invalid movie name ")
-    else:
-        pass
-
-
-
 
     total_tickets = num_adults + num_seniors + num_children
 
@@ -121,12 +113,29 @@ def book_movie():
     print("Your seats:", available_seats)
 
     cost = (num_adults * 20) + (num_seniors * 15) + (num_children * 10)
-    print(f"Total cost: ${cost}")
+    print(f"Total cost: RM{cost}")
 
     with open('bookinginfo.txt', 'a') as file:
         file.write(f"{select_movie}|{show_time}|{available_seats}|{cost}\n")
 
     print("Booking successful!")
+
+def add_on():
+
+    with open("combo.txt",'r')as file:
+        for food in file:
+            combo_id , combo  , price = food.split('-')
+            print(f"{combo_id.strip()}-{combo.strip()}-{price}")
+
+
+
+
+
+
+
+
+
+
 
 # Main function to run the system
 def main():
@@ -149,7 +158,7 @@ def main():
     while True:
         print("\n1. Show movie details")
         print("2. Book a movie")
-        print("3. Quit")
+        print("3. Next")
         option = input("Enter your choice(type back to exit) : ").strip().lower()
 
         if option == '1':
@@ -157,10 +166,36 @@ def main():
         elif option == '2':
             book_movie()
         elif option == '3':
-            print("Quitting the system. Goodbye!")
+            print("Moving to next step")
             break
         else:
             print("Invalid choice. Please enter '1', '2' or '3.")
+
+   # while True:
+   #     print("\nFood and Beverages :  ")
+   #     print("1.Food/snacks")
+   #     print("2. NO")
+   #     choice = int(input("Anything Extra (food/NO) : "))
+   #
+   #     if choice =='1':
+   #         add_on()
+   #     else:
+   #         print("thank you")
+
+    while True:
+        print("\nFood and Beverages:")
+        print("1. Food/snacks")
+        print("2. NO")
+
+        choice = int(input("Anything Extra (1 for food/snacks, 2 for NO): ").strip())
+
+        if choice == 1:
+            add_on()
+        elif choice == 2:
+            print("Thank you.")
+        break  # Exit the loop if the user chooses '2'
+    else:
+        print("Invalid choice. Please enter '1' for food/snacks or '2' for NO.")
 
 if __name__ == "__main__":
     main()

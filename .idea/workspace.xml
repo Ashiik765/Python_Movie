@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="" />
+    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="pythonf">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookinginfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bookinginfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drinks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/drinks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/food.txt" beforeDir="false" afterPath="$PROJECT_DIR$/snaks.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,19 +22,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2jKh273SvV2tZvW5HoLSJnHiVL0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Mhdas/OneDrive/Desktop/Python_Movie",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mhdas/OneDrive/Desktop/Python_Movie&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\Mhdas\AppData\Roaming\Subversion</configuration>
@@ -35,6 +50,21 @@
       <option name="presentableId" value="Default" />
       <updated>1721141465504</updated>
     </task>
+    <task id="LOCAL-00001" summary="python">
+      <created>1721142176200</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721142176200</updated>
+    </task>
+    <task id="LOCAL-00002" summary="python">
+      <created>1721142305749</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721142305749</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -49,6 +79,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="python" />
+    <option name="LAST_COMMIT_MESSAGE" value="python" />
   </component>
 </project>
