@@ -22,7 +22,7 @@ print("----------------------")
 
 
 def entry() :
-    print("GYM MEMBERSHITP FILE")
+    print("MOVIE MEMBERSHITP FILE")
     print('choose the option :')
     print("1.login")
     print("2.Register")
