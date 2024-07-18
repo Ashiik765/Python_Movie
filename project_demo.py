@@ -7,14 +7,12 @@ def load_users():
     with open("user.txt",'r') as file:
         lines = file.readlines()
 
+
     for line in lines:
         username, password, email = line.strip().split("|")
         users[username] = {'password': password, 'email': email}
 
     return users
-
-
-
 
 # Function to save a new user to the file
 def save_user(username, password, email):
