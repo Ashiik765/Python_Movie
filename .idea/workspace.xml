@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="pythonf">
+    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="i had change the try function , i think you can now understand easily">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookinginfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bookinginfo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drinks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/drinks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/food.txt" beforeDir="false" afterPath="$PROJECT_DIR$/snaks.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.py" beforeDir="false" afterPath="$PROJECT_DIR$/project.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
     </list>
@@ -64,7 +59,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721142305749</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="i had change the try function , i think you can now understand easily">
+      <created>1721231478220</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721231478221</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -80,6 +82,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="python" />
-    <option name="LAST_COMMIT_MESSAGE" value="python" />
+    <MESSAGE value="i had change the try function , i think you can now understand easily" />
+    <option name="LAST_COMMIT_MESSAGE" value="i had change the try function , i think you can now understand easily" />
   </component>
 </project>
