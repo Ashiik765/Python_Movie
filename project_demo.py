@@ -95,11 +95,11 @@ def book_movie():
 
     select_movie = input(" what movie you want to watch  : ").upper()
     num_seats = int(input("Enter the number of seats you want to book: ").strip())
+    num_adults = int(input("How Many adult tickets: ").strip() or '0')
+    num_seniors = int(input("How many  senior tickets: ").strip() or '0')
+    num_children = int(input("How  Many  child tickets: ").strip() or '0')
+    #show_Time
     show_time = input("Enter the show time (choose from list ): ").strip()
-
-    num_adults = int(input("Enter the number of adult tickets: ").strip() or '0')
-    num_seniors = int(input("Enter the number of senior tickets: ").strip() or '0')
-    num_children = int(input("Enter the number of child tickets: ").strip() or '0')
 
     total_tickets = num_adults + num_seniors + num_children
 
@@ -107,8 +107,7 @@ def book_movie():
         print("Not enough seats available. Try booking fewer tickets.")
         return
 
-    available_seats = random.sample(range(1, 101), total_tickets)  # Assuming 100 seats in total
-    print("Your seats:", available_seats)
+    available_seats = random.sample(range(1, 25), total_tickets)  # Randomly selecting seats
 
     cost = (num_adults * 20) + (num_seniors * 15) + (num_children * 10)
     print(f"Total cost: RM{cost}")
@@ -118,82 +117,148 @@ def book_movie():
 
     print("Booking successful!")
 
-def add_on():
 
-    with open("combo.txt",'r')as file:
-        for food in file:
-            combo_id , combo  , price = food.split('-')
-            print(f"{combo_id.strip()}-{combo.strip()}-{price}")
-
-
-
-
-
+def load_combos():
+    combos = []
+    with open('combo.txt', 'r') as file:
+        for line in file:
+            combo_id, combo_name, price = line.strip().split('-')
+            price = price.replace('RM', '').strip()  # Remove 'RM' prefix
+            combos.append({'id': combo_id.strip(), 'name': combo_name.strip(), 'price': float(price)})
+    return combos
 
 
+def load_snacks():
+    snacks = []
+    with open('snaks.txt', 'r') as file:
+        for line in file:
+            snack_name, price = line.strip().split('-')
+            price = price.replace('RM', '').strip()  # Remove 'RM' prefix
+            snacks.append({'name': snack_name.strip(), 'price': float(price)})
+    return snacks
 
 
+def load_drinks():
+    drinks = []
+    with open('drinks.txt', 'r') as file:
+        for line in file:
+            drink_name, price = line.strip().split('-')
+            price = price.replace('RM', '').strip()  # Remove 'RM' prefix
+            drinks.append({'name': drink_name.strip(), 'price': float(price)})
+    return drinks
 
 
-# Main function to run the system
+def display_combos():
+    combos = load_combos()
+    print("Available Combos:")
+    for combo in combos:
+        print(f"{combo['id']} - {combo['name']} - RM {combo['price']}")
+
+
+def display_snacks():
+    snacks = load_snacks()
+    print("Available Snacks:")
+    for i in range(len(snacks)):
+        snack = snacks[i]
+        print(f"{i + 1} - {snack['name']} - RM {snack['price']}")
+
+
+def display_drinks():
+    drinks = load_drinks()
+    print("Available Drinks:")
+    for i in range(len(drinks)):
+        drink = drinks[i]
+        print(f"{i + 1} - {drink['name']} - RM {drink['price']}")
+
+
+def add_food():
+    order = []
+
+    while True:
+        print("\nFood and Beverages:")
+        print("1. Combo")
+        print("2. Snacks")
+        print("3. Drinks")
+        print("4. Next (Proceed to payment)")
+
+        choice = input("Choose an option (1-4): ").strip()
+
+        if choice == '1':
+            display_combos()
+            combo_choice = int(input("Select a combo by number: ").strip())
+            combos = load_combos()
+            if 1 <= combo_choice <= len(combos):
+                quantity = int(input("Enter quantity: ").strip())
+                order.append((combos[combo_choice - 1], quantity))
+                print(f"Added {quantity} x {combos[combo_choice - 1]['name']} to your order.")
+            else:
+                print("Invalid choice. Try again.")
+        elif choice == '2':
+            display_snacks()
+            snack_choice = int(input("Select a snack by number: ").strip())
+            snacks = load_snacks()
+            if 1 <= snack_choice <= len(snacks):
+                quantity = int(input("Enter quantity: ").strip())
+                order.append((snacks[snack_choice - 1], quantity))
+                print(f"Added {quantity} x {snacks[snack_choice - 1]['name']} to your order.")
+            else:
+                print("Invalid choice. Try again.")
+        elif choice == '3':
+            display_drinks()
+            drink_choice = int(input("Select a drink by number: ").strip())
+            drinks = load_drinks()
+            if 1 <= drink_choice <= len(drinks):
+                quantity = int(input("Enter quantity: ").strip())
+                order.append((drinks[drink_choice - 1], quantity))
+                print(f"Added {quantity} x {drinks[drink_choice - 1]['name']} to your order.")
+            else:
+                print("Invalid choice. Try again.")
+        elif choice == '4':
+            print("Moving to the next step.")
+            break
+        else:
+            print("Invalid user input.")
+
+    return order
+
+
+# Main function to integrate the add_food function into the main workflow:
 def main():
     users = load_users()
     print("Welcome to the Movie Ticket Booking System!")
 
     while True:
         print("1. Register")
-        print("2.Login")
-        choice = int(input("Do you want to login or register? (1.register/2.Login): "))
-        if choice ==1:
+        print("2. Login")
+        choice = int(input("Do you want to login or register? (1. Register / 2. Login): "))
+        if choice == 1:
             register(users)
-        elif choice ==2:
+        elif choice == 2:
             if login(users):
                 break
-
         else:
-            print("Invalid choice. Please enter 'login' or 'register'.")
+            print("Invalid choice. Please enter '1' for Register or '2' for Login.")
 
     while True:
         print("\n1. Show movie details")
         print("2. Book a movie")
         print("3. Next")
-        option = input("Enter your choice(type back to exit) : ").strip().lower()
+        option = input("Enter your choice (type 'back' to exit): ").strip().lower()
 
         if option == '1':
             view_movies()
         elif option == '2':
             book_movie()
         elif option == '3':
-            print("Moving to next step")
+            print("Food and beverages")
             break
         else:
-            print("Invalid choice. Please enter '1', '2' or '3.")
+            print("Invalid choice. Please enter '1', '2', or '3'.")
 
-   # while True:
-   #     print("\nFood and Beverages :  ")
-   #     print("1.Food/snacks")
-   #     print("2. NO")
-   #     choice = int(input("Anything Extra (food/NO) : "))
-   #
-   #     if choice =='1':
-   #         add_on()
-   #     else:
-   #         print("thank you")
+    order = add_food()
 
-    while True:
-        print("\nFood and Beverages:")
-        print("1. Food/snacks")
-        print("2. NO")
+    # You would then continue with the payment process and saving the order details to 'bookinginfo.txt'
 
-        choice = int(input("Anything Extra (1 for food/snacks, 2 for NO): ").strip())
-
-        if choice == 1:
-            add_on()
-        elif choice == 2:
-            print("Thank you.")
-        break  # Exit the loop if the user chooses '2'
-    else:
-        print("Invalid choice. Please enter '1' for food/snacks or '2' for NO.")
 
 if __name__ == "__main__":
     main()

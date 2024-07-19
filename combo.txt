@@ -1,4 +1,4 @@
-Combo 1 - Popcorn, Coke - $10
-Combo 2 - Nachos, Pepsi - $12
-Combo 3 - Hotdog, Sprite - $15
-Combo 4 - Popcorn, Water - $8
+Combo 1 - Popcorn, Coke - RM10
+Combo 2 - Nachos, Pepsi - RM12
+Combo 3 - Hotdog, Sprite - RM15
+Combo 4 - Popcorn, Water - RM8

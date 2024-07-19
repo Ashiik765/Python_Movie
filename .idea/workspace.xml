@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="i had change the try function , i think you can now understand easily">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookinginfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bookinginfo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/snaks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/snaks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +69,21 @@
       <option name="project" value="LOCAL" />
       <updated>1721231478221</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="i had change the try function , i think you can now understand easily">
+      <created>1721279829910</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721279829910</updated>
+    </task>
+    <task id="LOCAL-00005" summary="i had change the try function , i think you can now understand easily">
+      <created>1721279847446</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721279847446</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
