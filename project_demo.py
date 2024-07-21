@@ -1,14 +1,14 @@
 import time
 import pickle
 import random
-from datetime import date, datetime
+from datetime import date, datetime                   # code will import time and date
 
 now = datetime.now()
-current_time = now.strftime("%H:%M:%S")
+current_time = now.strftime("%H:%M:%S")                         # save the date and time
 current_date = date.today().strftime("%m/%d/%Y")
 
 # Function to load users from the file
-def load_users():
+def load_users():                                          # load the user  using name parrword and gmail
     users = {}
     with open("user.txt", 'r') as file:
         lines = file.readlines()
@@ -20,12 +20,12 @@ def load_users():
     return users
 
 # Function to save a new user to the file
-def save_user(username, password, email):
+def save_user(username, password, email):                                 # it will save user information
     with open('user.txt', 'a') as file:
         file.write(f"{username}|{password}|{email}\n")
 
 # Function to register a new user
-def register(users):
+def register(users):                                         # registering
     while True:
         username = input("Enter a username: ").strip()
         if username in users:
@@ -35,7 +35,7 @@ def register(users):
 
     password = input("Enter a password: ").strip()
 
-    while True:
+    while True:                                                                # this part  from google it help to find invalid gmails
         email = input("Enter your Gmail address: ").strip()
         if email.endswith('@gmail.com'):
             break
@@ -47,7 +47,7 @@ def register(users):
     print("Registration successful. You can now login.")
 
 # Function to login a user
-def login(users):
+def login(users):                                                       # helps user to login
     username = input("Enter your username: ").strip()
     password = input("Enter your password: ").strip()
 
@@ -89,7 +89,7 @@ def select_movie():
         print(movie.split('-')[0].strip())  # Display only movie names
 
 # Function to book a movie
-def book_movie():
+def book_movie():                                     # user can boook movie , seats  , time here
     view_movies()
     movie_name = input("What movie do you want to watch: ").strip().title()
     num_seats = int(input("Enter the number of seats you want to book: ").strip())
@@ -100,7 +100,7 @@ def book_movie():
 
     total_tickets = num_adults + num_seniors + num_children
 
-    if total_tickets > num_seats:
+    if total_tickets > num_seats:                                 # if user input more seats
         print("Not enough seats available. Try booking fewer tickets.")
         return 0
 
@@ -115,6 +115,8 @@ def book_movie():
 
     print("Booking successful!")
     return cost
+
+# foood and beverage part :
 
 def load_combos():
     combos = []
@@ -142,6 +144,9 @@ def load_drinks():
             price = price.strip().replace('RM', '').strip()  # Remove 'RM' prefix
             drinks.append({'name': drink_name.strip(), 'price': float(price)})
     return drinks
+
+
+# display 3 food and beverage files
 
 def display_combos():
     combos = load_combos()
@@ -252,7 +257,7 @@ def payment_process(movie_cost, food_order):
 
     return total_amount, total_payment, change
 
-def print_receipt(movie_cost, food_order, total_amount, payment_amount, change):
+def print_receipt(movie_cost, food_order, total_amount, payment_amount, change):                # printing reciept
     print("---------------------------------------------------------")
     print("\t\t\tMarwan Movie Ticket Booking System")
     print("---------------------------------------------------------")
