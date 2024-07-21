@@ -1,7 +1,7 @@
 Coke - RM3
-Pepsi - 3
-7uP - $3
-Thumps uP - $2
-Fanta - $3
-Iced Tea - $3
-Lemonade - $3
+Pepsi - RM3
+7uP - RM3
+Thumps uP - RM2
+Fanta - RM3
+Iced Tea - RM3
+Lemonade - RM3

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="i had change the try function , i think you can now understand easily">
+    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bookinginfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bookinginfo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/combo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/combo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drinks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/drinks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_demo.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/snaks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/snaks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
@@ -16,6 +16,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +90,21 @@
       <option name="project" value="LOCAL" />
       <updated>1721279847446</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later">
+      <created>1721363040355</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721363040355</updated>
+    </task>
+    <task id="LOCAL-00007" summary="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later">
+      <created>1721378509187</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721378509187</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -100,6 +121,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="python" />
     <MESSAGE value="i had change the try function , i think you can now understand easily" />
-    <option name="LAST_COMMIT_MESSAGE" value="i had change the try function , i think you can now understand easily" />
+    <MESSAGE value="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later" />
+    <option name="LAST_COMMIT_MESSAGE" value="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later" />
   </component>
 </project>
