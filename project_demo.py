@@ -251,8 +251,6 @@ def payment_process(movie_cost, food_order):
 
     food_total = calculate_total(food_order)    # calculating food cost
     total_amount = food_total + movie_cost      # total amount including the movie cost
-
-
      # printing the paymnet for double check
 
     print('')
@@ -282,11 +280,11 @@ def payment_process(movie_cost, food_order):
 
 #printing reciept
 
-def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats , num_children , num_seniors , num_adults ):
+def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats , num_children , num_seniors , num_adults , username ):
     print("\n---------------------------------------------------------")
     print("\t\t\tMarwan Movie Ticket Booking System")
     print("---------------------------------------------------------")
-    print(f"Date: {current_date:<15} Time: {current_time:<35}")
+    print(f"Date: {current_date:<15}  Time: {current_time:>15}")
     print('---------------------------------------------------------')
     print(f"ITEMS                         {'COST':>7.5}")
     print(f"Movie cost                   : RM {movie_cost:>5.2f}")
