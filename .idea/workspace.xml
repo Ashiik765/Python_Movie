@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later">
+    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="almost done i ill explain the code later broo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bookinginfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bookinginfo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drinks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/drinks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/snaks.txt" beforeDir="false" afterPath="$PROJECT_DIR$/snaks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +102,21 @@
       <option name="project" value="LOCAL" />
       <updated>1721378509187</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later">
+      <created>1721559952136</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721559952136</updated>
+    </task>
+    <task id="LOCAL-00009" summary="almost done i ill explain the code later broo">
+      <created>1721560400330</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721560400330</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +134,7 @@
     <MESSAGE value="python" />
     <MESSAGE value="i had change the try function , i think you can now understand easily" />
     <MESSAGE value="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later" />
-    <option name="LAST_COMMIT_MESSAGE" value="i had change the try function , i think you can now understand easily&#10;&#10;done untill the food remaining is the payment ill do later" />
+    <MESSAGE value="almost done i ill explain the code later broo" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost done i ill explain the code later broo" />
   </component>
 </project>
