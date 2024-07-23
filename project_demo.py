@@ -112,15 +112,20 @@ def book_movie(username):
     num_adults = int(input("How many adult tickets RM 20 (enter 0 if no adult): ").strip() or '0')
     num_seniors = int(input("How many senior tickets RM 15 (enter 0 if no senior): ").strip() or '0')
     num_children = int(input("How many child tickets RM 10 (enter 0 if no child): ").strip() or '0')
-    show_time = input("Enter the show time (choose from list): ").strip()
 
     total_tickets = num_adults + num_seniors + num_children
+    if total_tickets > num_seats:  # if user input more seats
+        print("Not enough seats available. Try booking fewer tickets.")
+        return 0, [], 0, 0, 0
+
+
+    show_time = input("Enter the show time (choose from list): ").strip()
+
+
 
     seats = generate_seats(num_seats)
 
-    if total_tickets > num_seats:                                 # if user input more seats
-        print("Not enough seats available. Try booking fewer tickets.")
-        return 0, [], 0, 0, 0
+
 
     available_seats = random.sample(seats, total_tickets)  # Randomly selecting seats
 
@@ -280,7 +285,7 @@ def payment_process(movie_cost, food_order):
 #helllo
 #printing reciept
 
-def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats , num_children , num_seniors , num_adults , username ):
+def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats, num_children, num_seniors, num_adults, username):
     print("\n---------------------------------------------------------")
     print("\t\t\tMarwan Movie Ticket Booking System")
     print("---------------------------------------------------------")
@@ -290,12 +295,12 @@ def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, 
     print(f"Movie cost                   : RM {movie_cost:>5.2f}")
     # Display selected seats
     print("Selected seats:")
+    print(f"{username}")
     for seat in available_seats:
         print(f"  {seat}")  # addding seats detail to reciept
     print(f"Adults: {num_adults}, Seniors: {num_seniors}, Children: {num_children}")
     print(f"Food and Beverages Cost      : RM {calculate_total(food_order):<15.2f}")
     print("----------------------------------------------------------")
-
     print(f"Total Cost                   : RM {total_amount:<15.2f}")
     print(f"Amount Paid                  : RM {payment_amount:<15.2f}")
     print("----------------------------------------------------------")
