@@ -1,15 +1,12 @@
-import time
-import pickle
-import random
-from datetime import date, datetime  # code will import time and date
+from datetime import date, datetime
 
 now = datetime.now()
-current_time = now.strftime("%H:%M:%S")  # save the date and time
+current_time = now.strftime("%H:%M:%S")
 current_date = date.today().strftime("%m/%d/%Y")
 
 
 # Function to load users from the file
-def load_users():  # load the user  using name parrword and gmail
+def load_users():
     users = {}
     with open("user.txt", 'r') as file:
         lines = file.readlines()
@@ -22,13 +19,13 @@ def load_users():  # load the user  using name parrword and gmail
 
 
 # Function to save a new user to the file
-def save_user(username, password, email):  # it will save user information
+def save_user(username, password, email):
     with open('user.txt', 'a') as file:
         file.write(f"{username}|{password}|{email}\n")
 
 
 # Function to register a new user
-def register(users):  # registering
+def register(users):
     while True:
         username = input("Enter a username: ").strip()
         if username in users:
@@ -38,9 +35,9 @@ def register(users):  # registering
 
     password = input("Enter a password: ").strip()
 
-    while True:  # this part  from google it help to find invalid gmails
+    while True:
         email = input("Enter your Gmail address: ").strip()
-        if email.endswith('@gmail.com'):  # find the email is valid or invalid
+        if email.endswith('@gmail.com'):
             break
         else:
             print("Invalid email. Please enter a valid Gmail address (ending with @gmail.com).")
@@ -52,12 +49,11 @@ def register(users):  # registering
 
 
 # Function to login a user
-def login(users):  # helps user to login
+def login(users):
     username = input("Enter your username: ").strip()
     password = input("Enter your password: ").strip()
 
-    if username in users and users[username][
-        'password'] == password:  # checking the given user nameand pass is in the list or not
+    if username in users and users[username]['password'] == password:
         print("\nLogin successful.\n")
         return username
     else:
@@ -79,39 +75,53 @@ def view_movies():
     movies = load_movies()
     if movies:
         print("\nAvailable movies:")
-        print("\n\tMovie - \tShow Times ")
-        for movie in movies:
+        print("\nIndex - Movie - Show Times")
+        for index, movie in enumerate(movies, start=1):
             movie_name, show_times = movie.split('-')
-            print(f"{movie_name.strip()} - {show_times.strip()}")
+            print(f"{index}. {movie_name.strip()} - {show_times.strip()}")
     else:
         print("No movies available.")
 
 
-# Function to select a movie
-def select_movie():
-    movies = load_movies()
-    if not movies:
-        print("No movies available.")
-        return None
-    print("Available movies:")
-    for movie in movies:
-        print(movie.split('-')[0].strip())  # Display only movie names
-
-
-# Function to generate available seats with random alphabets
-def generate_seats(num_seats):
-    seats = []
-    alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    for i in range(1, 26):
-        seat = f"{random.choice(alphabets)}-{i}"  # choose an alphabet from the variable and add this with seat number
-        seats.append(seat)
+# Function to generate available seats in a 6x8 grid
+def generate_seats(rows=8, cols=10):
+    seats = [['□' for _ in range(cols)] for _ in range(rows)]
     return seats
+
+
+# Function to display seats
+def display_seats(seats):
+    print("Seats (□: Available, ■: Booked):")
+    for row in seats:
+        print(' '.join(row))
+    print()
+
+
+# Function to book seats
+def book_seats(seats, num_seats):
+    available_seats = [(r, c) for r in range(len(seats)) for c in range(len(seats[0])) if seats[r][c] == '□']
+    if len(available_seats) < num_seats:
+        print("Not enough seats available.")
+        return False
+
+    selected_seats = available_seats[:num_seats]
+    for r, c in selected_seats:
+        seats[r][c] = '■'
+    return selected_seats
 
 
 # Function to book a movie
 def book_movie(username):
+    movies = load_movies()
     view_movies()
-    movie_name = input("\nWhat movie do you want to watch: ").strip().title()
+    movie_index = int(input("\nEnter the index of the movie you want to watch: ").strip())
+
+    if movie_index < 1 or movie_index > len(movies):
+        print("Invalid movie selection.")
+        return 0, [], 0, 0, 0, ""
+
+    selected_movie = movies[movie_index - 1]
+    movie_name, show_times = selected_movie.split('-')
 
     num_seats = int(input("\nEnter the number of seats you want to book: ").strip())
     num_adults = int(input("\nHow many adult tickets RM 20 (enter 0 if no adult): ").strip() or '0')
@@ -119,38 +129,39 @@ def book_movie(username):
     num_children = int(input("How many child tickets RM 10 (enter 0 if no child): ").strip() or '0')
 
     total_tickets = num_adults + num_seniors + num_children
-    if total_tickets > num_seats:  # if user input more seats
-        print("Not enough seats available. Try booking fewer tickets.")
-        return 0, [], 0, 0, 0
+    if total_tickets > num_seats:
+        print("Total tickets exceed the number of seats booked.")
+        return 0, [], 0, 0, 0, ""
+
+    seats = generate_seats()
+    display_seats(seats)
+    booked_seats = book_seats(seats, total_tickets)
+    if not booked_seats:
+        return 0, [], 0, 0, 0, ""
 
     show_time = input("\nEnter the show time (choose from list): ").strip()
 
-    seats = generate_seats(num_seats)
-
-    available_seats = random.sample(seats, total_tickets)  # Randomly selecting seats
-
-    cost = (num_adults * 20) + (num_seniors * 15) + (num_children * 10)  # calcualating the price for movie
+    cost = (num_adults * 20) + (num_seniors * 15) + (num_children * 10)  # calculating the price for movie
     print(" ")
     print(f"Total cost: RM{cost:.2f}")
 
     with open('bookinginfo.txt', 'a') as file:  # saving the booking to booking info text file
-        file.write(f"{username}|{movie_name}|{show_time}|{available_seats}|{cost}\n")
+        file.write(f"{username}|{movie_name}|{show_time}|{booked_seats}|{cost}\n")
 
     print("Booking successful!")
-    # returning  variables
-    return cost, available_seats, num_children, num_seniors, num_adults, movie_name
+    display_seats(seats)
+    # returning variables
+    return cost, booked_seats, num_children, num_seniors, num_adults, movie_name.strip()
 
 
-# foood and beverage part :
-
-def load_combos():  # loading the combo food and beverage from text file
+# food and beverage part :
+def load_combos():
     combos = []
     with open('combo.txt', 'r') as file:
         for line in file:
-            combo_id, combo_name, price = line.strip().split('-')  # Split line into combo ID, name, and price
-            price = price.replace('RM', '').strip()  # Remove 'RM' prefix
-            combos.append(
-                {'id': combo_id.strip(), 'name': combo_name.strip(), 'price': float(price)})  # add combo to list
+            combo_id, combo_name, price = line.strip().split('-')
+            price = price.replace('RM', '').strip()
+            combos.append({'id': combo_id.strip(), 'name': combo_name.strip(), 'price': float(price)})
     return combos
 
 
@@ -159,17 +170,17 @@ def load_snacks():
     with open('snaks.txt', 'r') as file:
         for line in file:
             snack_name, price = line.strip().split('-')
-            price = price.strip().replace('RM', '').strip()  # Remove 'RM' prefix
+            price = price.strip().replace('RM', '').strip()
             snacks.append({'name': snack_name.strip(), 'price': float(price)})
     return snacks
 
 
-def load_drinks():  # laoding
+def load_drinks():
     drinks = []
     with open('drinks.txt', 'r') as file:
         for line in file:
             drink_name, price = line.strip().split('-')
-            price = price.strip().replace('RM', '').strip()  # Remove 'RM' prefix
+            price = price.strip().replace('RM', '').strip()
             drinks.append({'name': drink_name.strip(), 'price': float(price)})
     return drinks
 
@@ -226,8 +237,8 @@ def add_food():
             snack_choice = int(input("\nSelect snacks by number: ").strip())
             snacks = load_snacks()
             if 1 <= snack_choice <= len(snacks):
-                qty = int(input("Enter the quantity: "))  # Get quantity of selected snack
-                order.append((snacks[snack_choice - 1], qty))  # Add selected snack to order
+                qty = int(input("Enter the quantity: "))
+                order.append((snacks[snack_choice - 1], qty))
                 print(f"Added {qty} x {snacks[snack_choice - 1]['name']} to your order.")
             else:
                 print("Invalid selection")
@@ -238,7 +249,7 @@ def add_food():
             drinks = load_drinks()
             if 1 <= drink_choice <= len(drinks):
                 qty = int(input("Enter the quantity: "))
-                order.append((drinks[drink_choice - 1], qty))  # Add selected drink to order
+                order.append((drinks[drink_choice - 1], qty))
                 print(f"Added {qty} x {drinks[drink_choice - 1]['name']} to your order.")
             else:
                 print("Invalid selection")
@@ -255,7 +266,7 @@ def add_food():
 def calculate_total(order):
     total = 0
     for item, quantity in order:
-        total += item['price'] * quantity  # Sum up total cost
+        total += item['price'] * quantity
     return total
 
 
@@ -263,9 +274,8 @@ def payment_process(movie_cost, food_order):
     if movie_cost is None:
         movie_cost = 0
 
-    food_total = calculate_total(food_order)  # calculating food cost
-    total_amount = food_total + movie_cost  # total amount including the movie cost
-    # printing the paymnet for double check
+    food_total = calculate_total(food_order)
+    total_amount = food_total + movie_cost
 
     print('')
     print("Calculating the Total:")
@@ -282,12 +292,11 @@ def payment_process(movie_cost, food_order):
         total_payment += amount
 
         if total_payment < total_amount:
-            print(
-                f"insufficient amount . you need to enter RM {total_amount - total_payment:.2f} more")  # Notify if more money is needed
+            print(f"insufficient amount . you need to enter RM {total_amount - total_payment:.2f} more")
         else:
             break
 
-    change = total_payment - total_amount  # calculate the change
+    change = total_payment - total_amount
     print(f"Payment successful. Your change is RM {change:.2f}.")
 
     return total_amount, total_payment, change
@@ -309,35 +318,37 @@ def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, 
     print(center_text("---------------------------------------------------------", receipt_width))
     print(center_text(f"Date: {current_date}  Time: {current_time}", receipt_width))
     print(center_text("---------------------------------------------------------", receipt_width))
-    print(f"{'ITEMS':<30} {'QTY':<5} {'COST':>7}")
+    print(f"{'ITEMS':<30} {'QTY':<10} {'COST':>7}")
     print(center_text("---------------------------------------------------------", receipt_width))
-    print(f"{'Movie:':<30} {movie_name}")
-    if num_adults > 0:
-        print(f"{'Adult Tickets':<30} {num_adults:<5} RM {num_adults * 20:.2f}")
-    if num_seniors > 0:
-        print(f"{'Senior Tickets':<30} {num_seniors:<5} RM {num_seniors * 15:.2f}")
-    if num_children > 0:
-        print(f"{'Child Tickets':<30} {num_children:<5} RM {num_children * 10:.2f}")
-    print(f"{'Total Movie Cost':<30} {' ':<5} RM {movie_cost:.2f}")
+    if movie_name:
+        print(center_text(f"Movie:  {movie_name}", receipt_width))
+        if num_adults > 0:
+            print(f"{'Adult Tickets':<30} {num_adults:<10} RM {num_adults * 20:.2f}")
+        if num_seniors > 0:
+            print(f"{'Senior Tickets':<30} {num_seniors:<10} RM {num_seniors * 15:.2f}")
+        if num_children > 0:
+            print(f"{'Child Tickets':<30} {num_children:<10} RM {num_children * 10:.2f}")
+    print(f"{'Total Movie Cost':<30} {' ':<10} RM {movie_cost:.2f}")
     print(center_text("---------------------------------------------------------", receipt_width))
     print(center_text("Selected seats:", receipt_width))
 
     # Print the seats horizontally
-    seats_per_line = 10
-    for i in range(0, len(available_seats), seats_per_line):
-        print("  ".join(available_seats[i:i + seats_per_line]))
+    seats_per_line = 8
+    formatted_seats = [f"R{r + 1}-C{c + 1}" for r, c in available_seats]
+    for i in range(0, len(formatted_seats), seats_per_line):
+        print(center_text("  ".join(formatted_seats[i:i + seats_per_line]), receipt_width))
 
     print(center_text("---------------------------------------------------------", receipt_width))
     print("Food and Beverages:")
     for item, qty in food_order:
-        print(f"{item['name']:<30} {qty:<5} RM {item['price'] * qty:.2f}")
+        print(f"{item['name']:<30} {qty:<10} RM {item['price'] * qty:.2f}")
     print(center_text("----------------------------------------------------------", receipt_width))
-    print(f"{'Total Food & Beverage Cost':<30} {' ':<5} RM {calculate_total(food_order):.2f}")
+    print(f"{'Total Food & Beverage Cost':<30} {' ':<10} RM {calculate_total(food_order):.2f}")
     print(center_text("----------------------------------------------------------", receipt_width))
-    print(f"{'Total Cost':<30} {' ':<5} RM {total_amount:.2f}")
-    print(f"{'Amount Paid':<30} {' ':<5} RM {payment_amount:.2f}")
+    print(f"{'Total Cost':<30} {' ':<10} RM {total_amount:.2f}")
+    print(f"{'Amount Paid':<30} {' ':<10} RM {payment_amount:.2f}")
     print(center_text("----------------------------------------------------------", receipt_width))
-    print(f"{'Change':<30} {' ':<5} RM {change:.2f}")
+    print(f"{'Change':<30} {' ':<10} RM {change:.2f}")
     print('')
     print(center_text(f"Thank you {username} for booking your movie with us!", receipt_width))
     print(center_text("have a great day!", receipt_width))
