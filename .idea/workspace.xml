@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="broo tkake a look i think we done but not done hahaha i lot to add  , i m too tired  so iam stoping">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookinginfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bookinginfo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_demo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
-    </list>
+    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="broo tkake a look i think we done but not done hahaha i lot to add  , i m too tired  so iam stoping" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721648313146</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="broo tkake a look i think we done but not done hahaha i lot to add  , i m too tired  so iam stoping">
+      <created>1721665120579</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721665120580</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

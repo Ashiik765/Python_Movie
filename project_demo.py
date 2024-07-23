@@ -277,7 +277,7 @@ def payment_process(movie_cost, food_order):
 
     return total_amount, total_payment, change
 
-
+#helllo
 #printing reciept
 
 def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats , num_children , num_seniors , num_adults , username ):
