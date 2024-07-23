@@ -285,7 +285,7 @@ def payment_process(movie_cost, food_order):
 #helllo
 #printing reciept
 
-def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats, num_children, num_seniors, num_adults, username):
+def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats, num_children, num_seniors, num_adults,username):
     print("\n---------------------------------------------------------")
     print("\t\t\tMarwan Movie Ticket Booking System")
     print("---------------------------------------------------------")
@@ -295,7 +295,6 @@ def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, 
     print(f"Movie cost                   : RM {movie_cost:>5.2f}")
     # Display selected seats
     print("Selected seats:")
-    print(f"{username}")
     for seat in available_seats:
         print(f"  {seat}")  # addding seats detail to reciept
     print(f"Adults: {num_adults}, Seniors: {num_seniors}, Children: {num_children}")
@@ -306,7 +305,7 @@ def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, 
     print("----------------------------------------------------------")
     print(f"Change                       : RM {change:<15.2f}")
     print('')
-    print("\t\t\tThank you from Marwan Booking System")
+    print(f"\t\t\tThank you {username}  book movie in this website")
     print("\t\t\t\t\thave a great day!")
     print('')
 
@@ -353,7 +352,7 @@ def main():
         elif option == '3':
             food_order = add_food()   # adding food and beverages
             total_amount, payment_amount, change = payment_process(movie_cost, food_order)   # for payment process
-            print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats, num_children, num_seniors, num_adults)  #print reciept
+            print_receipt(movie_cost, food_order, total_amount, payment_amount, change, available_seats, num_children, num_seniors, num_adults,username)  #print reciept
             break  # Exit the loop after payment and receipt
         else:
             print("Invalid choice. Please enter '1', '2', or '3'.")    # invalid choice
