@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="broo almost done refer it make it understand">
+    <list default="true" id="e8f2ef4f-e028-43b0-a012-64e3d421948a" name="Changes" comment="broo almost done refer it make it understand , study the cord remaining paatklaam">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bookinginfo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bookinginfo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.txt" beforeDir="false" afterPath="$PROJECT_DIR$/user.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721743027733</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="broo almost done refer it make it understand , study the cord remaining paatklaam">
+      <created>1721760346720</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1721760346720</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,6 +200,7 @@
     <MESSAGE value="almost done i ill explain the code later broo" />
     <MESSAGE value="broo tkake a look i think we done but not done hahaha i lot to add  , i m too tired  so iam stoping" />
     <MESSAGE value="broo almost done refer it make it understand" />
-    <option name="LAST_COMMIT_MESSAGE" value="broo almost done refer it make it understand" />
+    <MESSAGE value="broo almost done refer it make it understand , study the cord remaining paatklaam" />
+    <option name="LAST_COMMIT_MESSAGE" value="broo almost done refer it make it understand , study the cord remaining paatklaam" />
   </component>
 </project>

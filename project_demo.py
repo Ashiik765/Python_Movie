@@ -354,6 +354,22 @@ def print_receipt(movie_cost, food_order, total_amount, payment_amount, change, 
     print(center_text("have a great day!", receipt_width))
     print('')
 
+    view = input("Do you want to see your booking information (y/n): ").upper()
+
+    if view == 'Y':
+        with open("bookinginfo.txt", 'r') as file:
+            lines = file.readlines()
+            if lines:
+                last_line = lines[-1]
+                print("\n------ Your Booking Info ------")
+                print(last_line)
+                print("------------------------------")
+                print("Thank you!\n")
+            else:
+                print("No booking information found.")
+    else:
+        print("Have a great day!")
+
 
 # Main function to integrate the add_food function into the main workflow
 def main():
